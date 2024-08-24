@@ -20,7 +20,7 @@ class Wizard {
     Matrix imageMat = Matrix([imageDouble]);
 
     //Check if the Whiteboard has enough color to be considered a sketch
-    if (imageInt.sum().toInt() / (255 * 64 * 64) < 0.010) {
+    if (imageInt.sum().toInt() / (255 * 64 * 64) < 0.015) {
       return EmptyGuessResult();
     }
 
