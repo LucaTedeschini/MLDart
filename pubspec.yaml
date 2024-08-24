@@ -1,0 +1,12 @@
+name: ml_dart_wizard
+
+environment:
+  sdk: ">=2.18.0"
+dependencies:
+  equations: ^5.0.2
+  advance_math: ^3.3.8
+  image: ^4.2.0
+  flutter:
+    sdk: flutter
+assets:
+  - assets/
