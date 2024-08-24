@@ -8,14 +8,14 @@ class Wizard {
   Pca pca = Pca();
   Knn knn = Knn();
   Wizard();
-  Future<GuessState> guess(Uint8List image_uint) async {
+  Future<GuessState> guess(Uint8List imageUint) async {
     List<double> imageDouble = List<double>.empty(growable: true);
     List<num> imageInt = List<num>.empty(growable: true);
     //Convert the image into a Matrix
     for (int i = 0; i < 64 * 64; i++) {
-      image_uint[(i * 4) + 3] = abs(image_uint[(i * 4) + 3]).toInt();
-      imageInt.add(image_uint[(i * 4) + 3]);
-      imageDouble.add(image_uint[(i * 4) + 3].toDouble() / 255);
+      imageUint[(i * 4) + 3] = abs(imageUint[(i * 4) + 3]).toInt();
+      imageInt.add(imageUint[(i * 4) + 3]);
+      imageDouble.add(imageUint[(i * 4) + 3].toDouble() / 255);
     }
     Matrix imageMat = Matrix([imageDouble]);
 
@@ -27,7 +27,7 @@ class Wizard {
     //Project the matrix
     var imageMatPca = pca.predict(imageMat);
     //Guess the label
-    var inference = knn.guess(imageMatPca, 3.5, 20);
+    var inference = knn.guess(imageMatPca, 4, 20);
 
     return GuessResult(
       guesses: inference,
