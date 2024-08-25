@@ -27,7 +27,7 @@ class Wizard {
     //Project the matrix
     var imageMatPca = pca.predict(imageMat);
     //Guess the label
-    var inference = knn.guess(imageMatPca, 4.5, 30);
+    var inference = knn.guess(imageMatPca, 3, 20);
 
     return GuessResult(
       guesses: inference,
